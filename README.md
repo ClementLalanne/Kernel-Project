@@ -8,9 +8,7 @@
 
 -```spectrum.py```: The code for spectrum kernels.
 
--```kernel_combi.py```: A way to combine kernels additively. 
-
--```svm.py```: A svm solver using CVXOPT
+-```kernel_combin.py```: A way to combine kernels additively. 
 
 -```main.py```: The script to run to produce the test fine.
 
