@@ -1,12 +1,12 @@
 import numpy as np
 import svm
 import spectrum
-import kernel_combin 
-import data_handleing 
+import kernel_combin
+import data_handling
 from copy import deepcopy
 
 #First load the three datasets
-dss = data_handleing.load_datasets(0.25, 42)
+dss = data_handling.load_datasets(0.25, 42)
 
 #Then load the optimal Cs that were computed using k-fold cross validation
 Cs = np.load("OptimalCs.npy")
@@ -22,7 +22,7 @@ weightsexp = np.exp(alpha * weights)
 ref_clfs = [kernel_combin.WeightedSpectrums(15, Cs[0], weightsexp[0]), kernel_combin.WeightedSpectrums(15, Cs[1], weightsexp[1]), kernel_combin.WeightedSpectrums(15, Cs[0], weightsexp[0])]
 
 #Thain the classifiers and produce the test set.
-Y_pred = data_handleing.train_test(ref_clfs, dss)
+Y_pred = data_handling.train_test(ref_clfs, dss)
 
 #Write the predictions
-data_handleing.write_Y(Y_pred)
+data_handling.write_Y(Y_pred)
